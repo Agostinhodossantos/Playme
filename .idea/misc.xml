@@ -6,6 +6,11 @@
         <entry key="app/src/main/res/drawable/abc_ic_go_search_api_material.xml" value="0.183" />
         <entry key="app/src/main/res/drawable/abc_ic_search_api_material.xml" value="0.183" />
         <entry key="app/src/main/res/drawable/abc_ic_voice_search_api_material.xml" value="0.183" />
+        <entry key="app/src/main/res/drawable/bg_gradient_to_black.xml" value="0.163" />
+        <entry key="app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.186" />
+        <entry key="app/src/main/res/drawable/cast_ic_mini_controller_pause_large.xml" value="0.201" />
+        <entry key="app/src/main/res/drawable/cast_ic_mini_controller_play.xml" value="0.201" />
+        <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.201" />
         <entry key="app/src/main/res/drawable/ic_eis_albums.xml" value="0.191" />
         <entry key="app/src/main/res/drawable/ic_eis_artists.xml" value="0.191" />
         <entry key="app/src/main/res/drawable/ic_eis_audiobooks.xml" value="0.191" />
@@ -17,8 +22,16 @@
         <entry key="app/src/main/res/drawable/ic_eis_recently_played.xml" value="0.191" />
         <entry key="app/src/main/res/drawable/ic_eis_shuffle.xml" value="0.191" />
         <entry key="app/src/main/res/drawable/ic_eis_your_library.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable/ic_hear_sound.xml" value="0.1905" />
+        <entry key="app/src/main/res/drawable/ic_hear_sound_inner_circle.xml" value="0.1905" />
+        <entry key="app/src/main/res/drawable/ic_hear_sound_outer_circle.xml" value="0.1905" />
         <entry key="app/src/main/res/drawable/ic_spotify.xml" value="0.183" />
         <entry key="app/src/main/res/drawable/ic_spotify_logo_16.xml" value="0.183" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_like.xml" value="0.1515" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_like_active.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_pause.xml" value="0.1515" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_play.xml" value="0.177" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_skip_next.xml" value="0.177" />
         <entry key="app/src/main/res/drawable/spotify_logo_background.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1453125" />
