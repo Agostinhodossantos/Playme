@@ -1,10 +1,23 @@
 # Playme
- Inspirational designs to speed up your design workflow and create a beautiful app
- <br>this project is still under development and future updates will focus on the following tasks:
-#### Create following app
-- [ ] Login and registration screen <a href="https://cutt.ly/BTLGLKj">design inspiration here</a>
-- [ ] E-commerce App <a href="https://cutt.ly/OTLHPHN">design inspiration here</a>
-- [ ] Dating app <a href="https://cutt.ly/oTLKxAj">design inspiration here</a>
-- [ ] Online course mobile app <a href="https://cutt.ly/FTLKDUq">design inspiration here</a>
-- [ ] Video Chat App <a href="https://cutt.ly/FTLLNCy">design inspiration here</a>    
-- [ ] Animation app <a href="https://cutt.ly/bTLXlBZ">design inspiration here</a> 
+<p>Payme is a music streaming application that gives you access to over 90 million songs <br>
+ from around the world, as well as other audio content like podcasts.</p>
+
+#### TODO LIST <img class="emoji" alt="fire" src="https://github.githubassets.com/images/icons/emoji/unicode/1f525.png" width="20" height="20">
+- [X] Create bottom navigation menu
+- [ ] Customize dark mode theme
+- [ ] Create homepage fragments
+- [ ] Create search page
+- [ ] Create podcast page   
+- [ ] Custom popup ads
+- [ ] Create login page
+- [ ] Create Register page
+- [ ] Music player
+- [ ] Stream music
+
+#### Layout inspiration the main objective is to copy the spot <img class="emoji" alt="hugs" src="https://github.githubassets.com/images/icons/emoji/unicode/1f917.png" width="20" height="20">
+1. The main objective is clone [spotify app](https://play.google.com/store/apps/details?id=com.spotify.music)
+2. But you can use some [Dribbble music layout](https://dribbble.com/tags/music_app)
+
+#### The final App will be like the image below <img class="emoji" alt="dart" src="https://github.githubassets.com/images/icons/emoji/unicode/1f3af.png" width="20" height="20">
+<img height="400em" src="https://9to5mac.com/wp-content/uploads/sites/6/2021/09/Spotify.png?w=1600"/>
+
