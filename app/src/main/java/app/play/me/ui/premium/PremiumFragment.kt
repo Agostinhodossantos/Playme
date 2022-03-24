@@ -1,4 +1,4 @@
-package app.play.me.ui.notifications
+package app.play.me.ui.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import app.play.me.R
-import app.play.me.databinding.FragmentNotificationsBinding
+import app.play.me.databinding.FragmentPremiumBinding
 
-class NotificationsFragment : Fragment() {
+class PremiumFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
-    private var _binding: FragmentNotificationsBinding? = null
+    private lateinit var premiumViewModel: PremiumViewModel
+    private var _binding: FragmentPremiumBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,14 +24,14 @@ class NotificationsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+        premiumViewModel =
+            ViewModelProvider(this).get(PremiumViewModel::class.java)
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
+        _binding = FragmentPremiumBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.textDashboard
+        premiumViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
