@@ -3,7 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19739583333333333" />
+        <entry key="app/src/main/res/drawable/abc_ic_go_search_api_material.xml" value="0.183" />
+        <entry key="app/src/main/res/drawable/abc_ic_search_api_material.xml" value="0.183" />
+        <entry key="app/src/main/res/drawable/abc_ic_voice_search_api_material.xml" value="0.183" />
+        <entry key="app/src/main/res/drawable/ic_eis_albums.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable/ic_eis_artists.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable/ic_eis_audiobooks.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable/ic_eis_browse.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable/ic_eis_error.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable/ic_eis_home.xml" value="0.206" />
+        <entry key="app/src/main/res/drawable/ic_eis_playlists.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable/ic_eis_podcasts.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable/ic_eis_recently_played.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable/ic_eis_shuffle.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable/ic_eis_your_library.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable/ic_spotify.xml" value="0.183" />
+        <entry key="app/src/main/res/drawable/ic_spotify_logo_16.xml" value="0.183" />
+        <entry key="app/src/main/res/drawable/spotify_logo_background.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1984375" />
       </map>
     </option>
   </component>
