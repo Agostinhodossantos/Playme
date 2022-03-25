@@ -31,7 +31,25 @@
         <entry key="app/src/main/res/drawable/mediaservice_vector_like_active.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/mediaservice_vector_pause.xml" value="0.1515" />
         <entry key="app/src/main/res/drawable/mediaservice_vector_play.xml" value="0.177" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_playback_speed_0_5.xml" value="0.1635" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_playback_speed_0_8.xml" value="0.1635" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_playback_speed_1_0.xml" value="0.1635" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_playback_speed_1_2.xml" value="0.1635" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_playback_speed_1_5.xml" value="0.1635" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_playback_speed_2_0.xml" value="0.1635" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_playback_speed_3_0.xml" value="0.1635" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_plus_alt.xml" value="0.1635" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_repeat_all.xml" value="0.1635" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_repeat_off.xml" value="0.1635" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_repeat_one.xml" value="0.1635" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_seek_back_15.xml" value="0.1635" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_seek_forward_15.xml" value="0.1635" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_shuffle.xml" value="0.1635" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_shuffle_active.xml" value="0.1635" />
         <entry key="app/src/main/res/drawable/mediaservice_vector_skip_next.xml" value="0.177" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_skip_previous.xml" value="0.1635" />
+        <entry key="app/src/main/res/drawable/mediaservice_vector_start_radio.xml" value="0.1635" />
+        <entry key="app/src/main/res/drawable/mr_media_play_dark.xml" value="0.1635" />
         <entry key="app/src/main/res/drawable/spotify_logo_background.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1453125" />
