@@ -1,13 +1,13 @@
 package app.play.me.ui.home
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import app.play.me.databinding.ItemMostPlayedBinding
-import app.play.me.models.TopMusic
-import com.bumptech.glide.Glide
+import app.play.me.model.TopMusic
 
 
 class  MostPlayedAdapter : ListAdapter<TopMusic, MostPlayedAdapter.MostPlayedViewHolder>(Companion) {
@@ -34,7 +34,11 @@ class  MostPlayedAdapter : ListAdapter<TopMusic, MostPlayedAdapter.MostPlayedVie
 
     override fun onBindViewHolder(holder: MostPlayedViewHolder, position: Int) {
         holder.binding.tvTitle.text = currentList[position].title
-        holder.binding.lottiePlayIndicator.is
+        if (currentList[position].isCurrent) {
+            holder.binding.lottiePlayIndicator.visibility = View.VISIBLE
+        } else {
+            holder.binding.lottiePlayIndicator.visibility = View.GONE
+        }
 //        Glide
 //            .with(holder.binding.root)
 //            .load(currentList[position].image)

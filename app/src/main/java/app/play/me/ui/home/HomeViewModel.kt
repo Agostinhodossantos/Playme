@@ -3,7 +3,7 @@ package app.play.me.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import app.play.me.models.TopMusic
+import app.play.me.model.TopMusic
 
 class HomeViewModel : ViewModel() {
 
@@ -22,12 +22,12 @@ class HomeViewModel : ViewModel() {
 
     private fun getTopMusic(): List<TopMusic> {
         var list = mutableListOf<TopMusic>()
-        list.add(TopMusic(1, "Today's Top Hits", ""))
-        list.add(TopMusic(1, "Today's Top Hits", ""))
-        list.add(TopMusic(1, "Today's Top Hits", ""))
-        list.add(TopMusic(1, "Today's Top Hits", ""))
-        list.add(TopMusic(1, "Today's Top Hits", ""))
-        list.add(TopMusic(1, "Today's Top Hits", ""))
+        list.add(TopMusic(1, "Today's Top Hits", "", true))
+        list.add(TopMusic(1, "This is Justin bieber", "", ))
+        list.add(TopMusic(1, "All Out 2010s", ""))
+        list.add(TopMusic(1, "Mega Hit Mix", ""))
+        list.add(TopMusic(1, "Make me better", ""))
+        list.add(TopMusic(1, "Impact Theory with Tom", ""))
 
         return list
     }
