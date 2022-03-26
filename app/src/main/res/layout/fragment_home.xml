@@ -16,8 +16,6 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -65,10 +63,36 @@
                     android:src="@drawable/mediaservice_vector_like_active"/>
 
 
-
             </LinearLayout>
+
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:layout_weight="1"
+                layout="@layout/item_most_played"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="6dp"/>
+
+            <include
+                android:layout_weight="1"
+                layout="@layout/item_most_played"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content" />
+
+
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>
