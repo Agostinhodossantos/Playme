@@ -18,6 +18,7 @@ class HomeFragment : Fragment() {
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
     val adapter = MostPlayedAdapter()
+    var mixesAdapter = TopMixesAdapter()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -40,6 +41,13 @@ class HomeFragment : Fragment() {
             binding.rvMostPlayed.layoutManager =
                 StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
             binding.rvMostPlayed.adapter = adapter
+
+            mixesAdapter.submitList(it)
+            binding.rvTopMixes.layoutManager =
+                StaggeredGridLayoutManager(1, LinearLayoutManager.HORIZONTAL)
+            binding.rvTopMixes.adapter = mixesAdapter
+
+
         })
 
 
