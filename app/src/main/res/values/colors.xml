@@ -8,5 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="white_smoke">#B7F5F5F5</color>
+    <color name="gray_7">#ff121212</color>
+    <color name="headerEndGray">@color/gray_7</color>
+    <color name="header_gradient_end">@color/gray_7</color>
+    <color name="header_gradient_start">#a51d71</color>
+    <color name="header_overlay_end_color">#121212</color>
+    <color name="header_overlay_start_color">#66121212</color>
 
 </resources>
