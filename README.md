@@ -5,7 +5,7 @@
 #### TODO LIST <img class="emoji" alt="fire" src="https://github.githubassets.com/images/icons/emoji/unicode/1f525.png" width="20" height="20">
 - [X] Create bottom navigation menu
 - [ ] Customize dark mode theme
-- [ ] Create homepage fragments
+- [X] Create homepage fragments
 - [ ] Create search page
 - [ ] Create podcast page   
 - [ ] Custom popup ads
