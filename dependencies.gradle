@@ -20,5 +20,12 @@ ext.versions = [
         okhttpVersion        : '4.9.3',
         sandwichVersion      : '1.2.4',
 
+        // architecture components
+        fragmentVersion      : '1.4.1',
+        lifecycleVersion     : '2.4.1',
+        roomVersion          : '2.4.2',
+        archCompomentVersion : '2.1.0',
+        navigationVersion    : '2.4.1',
+
 
 ]
