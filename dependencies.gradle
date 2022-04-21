@@ -20,6 +20,9 @@ ext.versions = [
         okhttpVersion        : '4.9.3',
         sandwichVersion      : '1.2.4',
 
+        // moshi
+        moshiVersion         : '1.13.0',
+
         // architecture components
         fragmentVersion      : '1.4.1',
         lifecycleVersion     : '2.4.1',
