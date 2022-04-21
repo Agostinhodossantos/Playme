@@ -85,6 +85,9 @@ dependencies {
     implementation "com.squareup.moshi:moshi-kotlin:$versions.moshiVersion"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$versions.moshiVersion"
 
+    // debugging
+    implementation "com.jakewharton.timber:timber:$versions.timberVersion"
+
     // unit test
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

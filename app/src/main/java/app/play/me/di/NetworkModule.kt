@@ -1,11 +1,16 @@
 package app.play.me.di
 
+import app.play.me.model.Music
+import app.play.me.network.MusicApi
+import app.play.me.utils.Constants
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -18,6 +23,22 @@ object NetworkModule {
         return Moshi.Builder()
             .addLast(KotlinJsonAdapterFactory())
             .build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideRetrofit(moshi: Moshi): Retrofit.Builder {
+        return Retrofit.Builder()
+            .baseUrl(Constants.BASE_URL)
+            .addConverterFactory(MoshiConverterFactory.create())
+    }
+
+    @Singleton
+    @Provides
+    fun provideMusicService(retrofit: Retrofit.Builder): MusicApi {
+        return retrofit
+            .build()
+            .create(MusicApi::class.java)
     }
 
 }

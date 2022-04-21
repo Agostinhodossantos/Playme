@@ -5,15 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import app.play.me.databinding.FragmentLibraryBinding
+import app.play.me.model.Music
+import app.play.me.utils.DataState
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LibraryFragment : Fragment() {
 
-    private lateinit var libraryViewModel: LibraryViewModel
     private var _binding: FragmentLibraryBinding? = null
+    private val viewModel: LibraryViewModel by viewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,17 +30,30 @@ class LibraryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        libraryViewModel =
-            ViewModelProvider(this).get(LibraryViewModel::class.java)
-
         _binding = FragmentLibraryBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        subscribeObservers()
+        viewModel.setStateEvent(MainStateEvent.GetMusicsEvents)
 
-        val textView: TextView = binding.textNotifications
-        libraryViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+
+
         return root
+    }
+
+    private fun subscribeObservers() {
+        viewModel.dataState.observe(viewLifecycleOwner, Observer { dataState ->
+            when(dataState) {
+                is DataState.Success<List<Music>> -> {
+                    Toast.makeText(requireContext(), dataState.data.toString(), Toast.LENGTH_LONG).show()
+                }
+                is DataState.Loading -> {
+                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_LONG).show()
+                }
+                is DataState.Error -> {
+                    Toast.makeText(requireContext(), dataState.toString(), Toast.LENGTH_LONG).show()
+                }
+            }
+        })
     }
 
     override fun onDestroyView() {
