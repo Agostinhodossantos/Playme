@@ -36,7 +36,7 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
 
-        homeViewModel.topMusic.observe(viewLifecycleOwner, {
+        homeViewModel.topMusic.observe(viewLifecycleOwner) {
             adapter.submitList(it)
             binding.rvMostPlayed.layoutManager =
                 StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
@@ -48,7 +48,7 @@ class HomeFragment : Fragment() {
             binding.rvTopMixes.adapter = mixesAdapter
 
 
-        })
+        }
 
 
         return root

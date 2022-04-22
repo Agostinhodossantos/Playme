@@ -26,6 +26,7 @@
         <entry key="app/src/main/res/drawable/ic_hear_sound.xml" value="0.1905" />
         <entry key="app/src/main/res/drawable/ic_hear_sound_inner_circle.xml" value="0.1905" />
         <entry key="app/src/main/res/drawable/ic_hear_sound_outer_circle.xml" value="0.1905" />
+        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.1415" />
         <entry key="app/src/main/res/drawable/ic_settings_screen.xml" value="0.191" />
         <entry key="app/src/main/res/drawable/ic_spotify.xml" value="0.183" />
         <entry key="app/src/main/res/drawable/ic_spotify_logo_16.xml" value="0.183" />
@@ -58,7 +59,7 @@
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1453125" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.17604166666666668" />
-        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.17604166666666668" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.2" />
         <entry key="app/src/main/res/layout/item_most_played.xml" value="0.18" />
         <entry key="app/src/main/res/layout/item_top_mix.xml" value="0.14427083333333332" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1984375" />

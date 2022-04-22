@@ -4,4 +4,6 @@
     <string name="title_search">Search</string>
     <string name="title_library">Your Library</string>
     <string name="title_premium">Premium</string>
+    <string name="toolbar_search_title">Search</string>
+    <string name="search_placeholder">Artists, songs, our podcasts</string>
 </resources>
