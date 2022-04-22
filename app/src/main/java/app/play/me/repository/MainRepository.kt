@@ -20,15 +20,19 @@ constructor(
     suspend fun getMusics(): Flow<DataState<List<Music>>> = flow {
         emit(DataState.Loading)
         try {
+
             val networkMusic = musicApi.getMusic()
+
+            Timber.d("Musics$networkMusic")
             val musics = musicMapper.mapFromEntityList(networkMusic)
-            Timber.d("Musics$musics")
             for (music in musics) {
                 musicDao.insert(cacheMapper.mapToEntity(music))
             }
             val cachedMusics = musicDao.getMusics()
             emit(DataState.Success(cacheMapper.mapFromEntityList(cachedMusics)))
         } catch (e: Exception) {
+            Timber.d("Musics start $e")
+
             emit(DataState.Error(e))
         }
     }

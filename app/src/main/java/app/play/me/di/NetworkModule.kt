@@ -3,6 +3,8 @@ package app.play.me.di
 import app.play.me.model.Music
 import app.play.me.network.MusicApi
 import app.play.me.utils.Constants
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -10,6 +12,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
@@ -27,10 +30,25 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(moshi: Moshi): Retrofit.Builder {
+    fun provideGsonBuilder(): Gson {
+        return GsonBuilder()
+            .excludeFieldsWithoutExposeAnnotation()
+            .create()
+    }
+
+    @Singleton
+    @Provides
+    fun getBaseUrl(): String {
+        return Constants.BASE_URL
+    }
+
+
+    @Singleton
+    @Provides
+    fun provideRetrofit(gson: Gson, baseUrl: String): Retrofit.Builder {
         return Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
+            .baseUrl(baseUrl)
+            .addConverterFactory(GsonConverterFactory.create(gson))
     }
 
     @Singleton
