@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import app.play.me.R
 import app.play.me.databinding.FragmentHomeBinding
+import app.play.me.ui.adapter.MostPlayedAdapter
+import app.play.me.ui.adapter.TopMixesAdapter
 
 class HomeFragment : Fragment() {
 

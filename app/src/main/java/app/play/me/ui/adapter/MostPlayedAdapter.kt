@@ -1,4 +1,4 @@
-package app.play.me.ui.home
+package app.play.me.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
