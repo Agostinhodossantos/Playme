@@ -32,6 +32,9 @@ ext.versions = [
         roomVersion          : '2.4.2',
         archCompomentVersion : '2.1.0',
         navigationVersion    : '2.4.1',
+        
+        // coroutines
+        coroutinesVersion    : '1.6.1',
 
         // unit test
         truthVersion         : '1.0.1',
