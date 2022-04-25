@@ -6,7 +6,8 @@
 - [X] Create bottom navigation menu
 - [ ] Customize dark mode theme
 - [X] Create homepage fragments
-- [ ] Create search page
+- [X] Create search page
+- [X] Test Repository
 - [ ] Create podcast page   
 - [ ] Custom popup ads
 - [ ] Create login page
