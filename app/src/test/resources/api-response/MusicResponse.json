@@ -1,0 +1,22 @@
+{
+  "results": [
+    {
+      "id": 0,
+      "title": "title",
+      "url": "https://pokeapi.co/api/v2/pokemon/1/",
+      "cover": "cover"
+    },
+    {
+      "id": 1,
+      "title": "title",
+      "url": "https://pokeapi.co/api/v2/pokemon/1/",
+      "cover": "cover"
+    },
+    {
+      "id": 2,
+      "title": "title",
+      "url": "https://pokeapi.co/api/v2/pokemon/1/",
+      "cover": "cover"
+    }
+  ]
+}

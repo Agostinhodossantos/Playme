@@ -16,8 +16,10 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.io.IOException
 import java.nio.charset.StandardCharsets
 
+
 @RunWith(JUnit4::class)
 abstract class ApiAbstract<T> {
+
     @Rule
     @JvmField
     val instantExecutorRule: InstantTaskExecutorRule = InstantTaskExecutorRule()
@@ -61,5 +63,4 @@ abstract class ApiAbstract<T> {
             .build()
             .create(clazz)
     }
-
 }
