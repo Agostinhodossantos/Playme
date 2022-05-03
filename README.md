@@ -15,6 +15,8 @@
 - [ ] Music player
 - [ ] Stream music
 
+
+
 #### Layout inspiration  <img class="emoji" alt="hugs" src="https://github.githubassets.com/images/icons/emoji/unicode/1f917.png" width="20" height="20">
 1. The main goal is clone [spotify app](https://play.google.com/store/apps/details?id=com.spotify.music)
 2. But you can use some [Dribbble music layout](https://dribbble.com/tags/music_app)
