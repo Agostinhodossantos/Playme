@@ -27,11 +27,14 @@ include(
 //    ":common:imageloading",
     ":common:compose",
     ":common:resources",
-//    ":ui:onboarding",
+    ":ui:onboarding",
 //    ":ui:discover",
 //    ":ui:search",
 //    ":ui:bookmark",
 //    ":ui:details",
 //    ":ui:settings"
 )
-include(":common:resources")
+
+include(":domain")
+include(":data")
+include(":model")
