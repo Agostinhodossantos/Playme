@@ -38,3 +38,4 @@ include(
 include(":domain")
 include(":data")
 include(":model")
+include(":base")
