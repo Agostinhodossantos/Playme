@@ -5,12 +5,33 @@ pluginManagement {
         mavenCentral()
     }
 }
+
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
     }
 }
-rootProject.name = "Playme"
-include (":app")
+
+rootProject.name = ("Playme")
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
+include(
+    ":app",
+//    ":data",
+//    ":model",
+//    ":base",
+//    ":domain",
+//    ":data",
+//    ":common:imageloading",
+    ":common:compose",
+    ":common:resources",
+//    ":ui:onboarding",
+//    ":ui:discover",
+//    ":ui:search",
+//    ":ui:bookmark",
+//    ":ui:details",
+//    ":ui:settings"
+)
+include(":common:resources")

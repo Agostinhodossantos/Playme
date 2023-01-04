@@ -1,122 +1,142 @@
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
-    id("org.jlleitschuh.gradle.ktlint").version("10.3.0")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt)
 }
 
+val appVersionCode = propOrDef("Delish_VERSIONCODE", "1").toInt()
+
 android {
-    namespace = "app.playme.com"
-
-    compileSdk = libs.versions.compileSdk.get().toInt()
+    compileSdk = libs.versions.compile.sdk.version.get().toInt()
     defaultConfig {
-        applicationId = "app.playme.com"
-        minSdk = libs.versions.minSdk.get().toInt()
-        targetSdk = libs.versions.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
-        vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
+        minSdk = libs.versions.min.sdk.version.get().toInt()
+        targetSdk = libs.versions.target.sdk.version.get().toInt()
+        namespace = "app.playme.com"
 
-    signingConfigs {
-        // We use a bundled debug keystore, to allow debug builds from CI to be upgradable
-        named("debug") {
-            // storeFile = rootProject.file("debug.keystore")
-            storePassword = "android"
-            keyAlias = "androiddebugkey"
-            keyPassword = "android"
+        applicationId = "app.playme.com"
+        versionCode = appVersionCode
+        versionName = "0.1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary = true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
+                arguments["room.incremental"] = "true"
+            }
         }
+
+        buildConfigField("String", "SPOONACULAR_BASE_URL", "\"https://api.spoonacular.com/\"")
+        buildConfigField("String", "SPOONACULAR_KEY", propOrDef("SPOONACULAR_API_KEY", ""))
+        buildConfigField("String", "CUISINES_DATA_URL", "\"https://firebasestorage.googleapis.com/v0/b/delish-d4e2b.appspot.com/o/getCuisines.json?alt=media\"")
+        buildConfigField("String", "INGREDIENTS_DATA_URL",  "\"https://firebasestorage.googleapis.com/v0/b/delish-d4e2b.appspot.com/o/ingredients.json?alt=media\"")
     }
 
     buildTypes {
-        getByName("debug") {
-            // signingConfig = signingConfigs.getByName("debug")
-        }
-
         getByName("release") {
             isMinifyEnabled = true
-            // signingConfig = signingConfigs.getByName("debug")
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
-    }
-
-    testOptions {
-        unitTests {
-            isReturnDefaultValues = true
-            isIncludeAndroidResources = true
+        getByName("debug") {
+            versionNameSuffix = "-debug"
         }
     }
 
-    // Tests can be Robolectric or instrumented tests
+    // debug and release variants share the same source dir
     sourceSets {
-        val sharedTestDir = "src/sharedTest/java"
-        getByName("test") {
-            java.srcDir(sharedTestDir)
+        getByName("debug") {
+            java.srcDir("src/debugRelease/java")
         }
-        getByName("androidTest") {
-            java.srcDir(sharedTestDir)
+        getByName("release") {
+            java.srcDir("src/debugRelease/java")
         }
     }
 
+    // Required for AR because it includes a library built with Java 8
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-
-    buildFeatures {
-        compose = true
+    // To avoid the compile error: "Cannot inline bytecode built with JVM target 1.8
+    // into bytecode that is being built with JVM target 1.6"
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+        kotlinCompilerExtensionVersion = libs.versions.compose.compilerextension.get()
+    }
+
+    buildFeatures {
+        buildConfig = true
+        compose = true
     }
 
     packagingOptions {
-        // Multiple dependency bring these files in. Exclude them to enable
-        // our test APK to build (has no effect on our AARs)
-        excludes += "/META-INF/AL2.0"
-        excludes += "/META-INF/LGPL2.1"
+        resources.excludes.add("META-INF/licenses/**")
+        resources.excludes.add("META-INF/AL2.0")
+        resources.excludes.add("META-INF/LGPL2.1")
     }
 }
 
 dependencies {
-    val composeBom = platform(libs.androidx.compose.bom)
-    implementation(composeBom)
-    androidTestImplementation(composeBom)
+//    implementation(projects.data)
+//    implementation(projects.domain)
+//    implementation(projects.base)
+//    implementation(projects.common.imageloading)
+    implementation(projects.common.compose)
+//    implementation(projects.ui.onboarding)
+//    implementation(projects.ui.discover)
+//    implementation(projects.ui.search)
+//    implementation(projects.ui.bookmark)
+//    implementation(projects.ui.details)
+//    implementation(projects.ui.settings)
+//    api(projects.model)
 
+    // Hilt
+    implementation(libs.hilt.library)
+    implementation(libs.hilt.compose)
+    kapt(libs.hilt.compiler)
+
+    // Androidx
+    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
-    implementation(libs.kotlin.stdlib)
-    implementation(libs.kotlinx.coroutines.android)
-
-    implementation(libs.androidx.compose.ui.tooling.preview)
-    debugImplementation(libs.androidx.compose.ui.tooling)
-
-    // custom declaration for latest versions of material 3 and adaptive accompanist
-    implementation("androidx.compose.material3:material3:1.0.0-rc01")
-    implementation("com.google.accompanist:accompanist-adaptive:0.26.2-beta")
-
-    implementation(libs.androidx.compose.materialWindow)
-    implementation(libs.androidx.compose.material.iconsExtended)
-
-    implementation(libs.androidx.lifecycle.runtime)
-    implementation(libs.androidx.lifecycle.viewModelCompose)
+    implementation(libs.lifecycle.livedata.ktx)
+    kapt(libs.lifecycle.compiler)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.lifecycle.extensions)
+    implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.splashscreen)
+    implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.navigation.compose)
 
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.window)
+    // Compose
+    implementation(libs.compose.foundation.foundation)
+    implementation(libs.compose.foundation.layout)
+    implementation(libs.compose.material.material)
+   // implementation(libs.compose.material.iconsext)
+    implementation(libs.compose.animation.animation)
+   // implementation(libs.compose.ui.tooling)
+    implementation(libs.compose.constraint.layout)
+    implementation(libs.accompanist.navigation.animation)
+    implementation(libs.accompanist.navigation.material)
+    implementation(libs.accompanist.navigation.material)
+    implementation(libs.accompanist.insets)
+    implementation(libs.accompanist.systemuicontroller)
+    implementation(libs.accompanist.insetsui)
+}
 
-    androidTestImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.core)
-    androidTestImplementation(libs.androidx.test.runner)
-    androidTestImplementation(libs.androidx.test.espresso.core)
-    androidTestImplementation(libs.androidx.test.rules)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.kotlinx.coroutines.test)
-    androidTestImplementation(libs.androidx.compose.ui.test)
-    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
-
-    debugImplementation(libs.androidx.compose.ui.test.manifest)
+fun <T : Any> propOrDef(propertyName: String, defaultValue: T): T {
+    @Suppress("UNCHECKED_CAST")
+    val propertyValue = project.properties[propertyName] as T?
+    return propertyValue ?: defaultValue
 }
