@@ -19,8 +19,8 @@ android {
 }
 
 dependencies {
-//    implementation(projects.base)
-//    implementation(projects.domain)
+    implementation(projects.base)
+    implementation(projects.domain)
     implementation(projects.common.compose)
 
     implementation(libs.androidx.lifecycle.runtime.compose)
