@@ -19,23 +19,11 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(
     ":app",
-//    ":data",
-//    ":model",
-//    ":base",
-//    ":domain",
-//    ":data",
-//    ":common:imageloading",
+    ":data",
+    ":model",
+    ":base",
+    ":domain",
     ":common:compose",
     ":common:resources",
     ":ui:onboarding",
-//    ":ui:discover",
-//    ":ui:search",
-//    ":ui:bookmark",
-//    ":ui:details",
-//    ":ui:settings"
 )
-
-include(":domain")
-include(":data")
-include(":model")
-include(":base")

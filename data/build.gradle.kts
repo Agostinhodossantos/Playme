@@ -1,44 +1,132 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.ksp)
 }
 
-android {
-    namespace = "app.playme.data"
-    compileSdk = 32
 
+
+android {
+    compileSdk = libs.versions.compile.sdk.version.get().toInt()
     defaultConfig {
-        minSdk = 24
-        targetSdk = 32
+        minSdk = libs.versions.min.sdk.version.get().toInt()
+        targetSdk = libs.versions.target.sdk.version.get().toInt()
+        namespace = "app.playme.data"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
-    }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+        vectorDrawables {
+            useSupportLibrary = true
+        }
+
+        consumerProguardFiles("consumer-proguard-rules.pro")
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments["room.incremental"] = "true"
+                arguments["room.schemaLocation"] = "$projectDir/schemas"
+            }
         }
     }
+
+    // Some libs (such as androidx.core:core-ktx 1.2.0 and newer) require Java 8
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    // To avoid the compile error: "Cannot inline bytecode built with JVM target 1.8
+    // into bytecode that is being built with JVM target 1.6"
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+
+    sourceSets {
+        getByName("androidTest").assets.srcDirs("$projectDir/schemas")
+    }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/licenses/**")
+        resources.excludes.add("META-INF/AL2.0")
+        resources.excludes.add("META-INF/LGPL2.1")
     }
 }
 
-dependencies {
-
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.5.1")
-    implementation("com.google.android.material:material:1.7.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.4")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+    arg("room.incremental", "true")
 }
+
+dependencies {
+    implementation(projects.base)
+    api(projects.model)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
+
+    api(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.paging)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.paging.runtime)
+
+    api(libs.androidx.room.common)
+    api(libs.androidx.paging.common)
+    api(libs.timber)
+    implementation(libs.androidx.core.ktx)
+
+//    // Architecture Components
+//    testImplementation(Libs.ARCH_TESTING)
+//
+//
+    // OkHttp
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.interceptor)
+    testImplementation(libs.okhttp.mockwebserver)
+
+    // Retrofit
+    api(libs.retrofit)
+    api(libs.moshi)
+    api(libs.retrofit.converter.moshi)
+//    api(Libs.MOSHI_KOTLIN)
+
+//    // Kotlin
+//    implementation(Libs.KOTLIN_STDLIB)
+//
+    // Coroutines
+    api(libs.coroutines.core)
+//    testImplementation(Libs.COROUTINES_TEST)
+//    implementation(Libs.COROUTINES_PLAY_SERVICE)
+//
+    implementation(libs.hilt.library)
+    kapt(libs.hilt.compiler)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.hamcrest)
+//    testImplementation(libs.mockito.core)
+//    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.javafaker)
+//    testImplementation(libs.turbine)
+//    testImplementation(libs.junit.ext)
+    testImplementation(libs.assertj.core)
+    testImplementation(libs.mockk)
+
+    androidTestImplementation(libs.androidx.arc.testing)
+    androidTestImplementation(libs.androidx.test.runner)
+//    androidTestImplementation(libs.junit.ext)
+    androidTestImplementation(libs.assertj.core)
+//    androidTestImplementation(libs.turbine)
+//    androidTestImplementation(libs.room.testing)
+    androidTestImplementation(libs.coroutines.test)
+    androidTestImplementation(libs.javafaker)
+//
+    // unit tests livedata
+    testImplementation(libs.androidx.arc.testing)
+
+    // Data store
+    api(libs.datastore)
+
+//
+//    implementation(Libs.PLAY_SERVICE_LOCATION)
+}
+
