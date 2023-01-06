@@ -28,3 +28,4 @@ include(
     ":ui:onboarding",
 )
 include(":ui:songs")
+include(":common:imageloading")
