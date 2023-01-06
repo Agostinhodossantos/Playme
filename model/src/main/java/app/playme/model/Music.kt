@@ -7,9 +7,9 @@ data class Music(
     val uri: String,
     val title: String,
     val cover: String,
-    val subtitle: String? = null,
+    val subtitle: String,
     val summary: String? = null,
-    val author: String? = null,
-    val duration: Duration? = null,
+    val author: String,
+    val duration: String,
     val isPlaying: Boolean = false
 )

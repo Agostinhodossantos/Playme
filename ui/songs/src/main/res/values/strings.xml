@@ -1,0 +1,7 @@
+<resources>
+    <string name="cd_more">More</string>
+    <string name="cd_play">Play</string>
+    <string name="songs_date_duration">%1$s &#8226; %2$d mins</string>
+    <string name="cd_add">Add</string>
+    <string name="search">Search</string>
+</resources>

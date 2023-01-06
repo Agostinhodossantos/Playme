@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import app.playme.com.vm.MainViewModel
-import app.playme.compose.PlaymeTheme
+import app.playme.compose.theme.PlaymeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

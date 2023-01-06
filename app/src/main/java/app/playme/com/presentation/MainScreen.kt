@@ -16,7 +16,7 @@ import app.playme.com.presentation.navigation.BottomBar
 import app.playme.com.presentation.navigation.Navigate
 import app.playme.com.vm.MainViewModel
 import app.playme.com.vm.ViewEvent
-import app.playme.compose.BottomSheetShape
+import app.playme.compose.theme.BottomSheetShape
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.navigation.material.ModalBottomSheetLayout
 import com.google.accompanist.navigation.material.rememberBottomSheetNavigator

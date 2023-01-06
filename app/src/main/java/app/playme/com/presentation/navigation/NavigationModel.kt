@@ -21,19 +21,19 @@ sealed class NavigationModel(
     object Albums : NavigationModel(
         route = Navigate.Screen.Albums.route,
         title = R.string.albums,
-        icon = Icons.Outlined.AccountBox
+        icon = Icons.Outlined.LibraryMusic
     )
 
     object Artists : NavigationModel(
         route = Navigate.Screen.Artists.route,
         title = R.string.artists,
-        icon = Icons.Outlined.MailOutline
+        icon = Icons.Outlined.ArtTrack
     )
 
     object PlayList : NavigationModel(
         route = Navigate.Screen.Playlist.route,
         title = R.string.playlist,
-        icon = Icons.Outlined.Call
+        icon = Icons.Outlined.PlaylistPlay
     )
 
     object Settings : NavigationModel(

@@ -4,8 +4,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOut
 import androidx.compose.animation.slideOutVertically
-import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -18,12 +17,14 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import app.playme.model.Music
 
 @Composable
 fun BottomBar(
@@ -48,15 +49,22 @@ fun BottomBar(
                         LayoutDirection.Ltr
                     }
         ) {
-            BottomNavigation(
-                modifier = Modifier.navigationBarsPadding()
-            ) {
-                screens.forEach { screen ->
-                    AddItem(
-                        screen = screen,
-                        currentDestination = currentDestination,
-                        navController = navController
-                    )
+            var music = Music("1", "https://i.ibb.co/jZYyyBV/4.jpg", "UNCENSORED Interview ", "Cover","","","Agostinho", "04:00 min")
+
+            Column {
+                TopPlayer(music = music){}
+                Spacer(modifier = Modifier.height(8.dp))
+                BottomNavigation(
+                    modifier = Modifier.navigationBarsPadding(),
+                    backgroundColor = Color.DarkGray
+                ) {
+                    screens.forEach { screen ->
+                        AddItem(
+                            screen = screen,
+                            currentDestination = currentDestination,
+                            navController = navController
+                        )
+                    }
                 }
             }
         }
