@@ -64,4 +64,8 @@
     <string name="settings_item_language">Language</string>
     <string name="settings_item_share_app">Share App</string>
     <string name="settings_item_ask_question">Ask a question</string>
+    <string name="songs">Songs</string>
+    <string name="albums">Albums</string>
+    <string name="artists">Artists</string>
+    <string name="playlist">PlayList</string>
 </resources>

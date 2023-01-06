@@ -27,3 +27,4 @@ include(
     ":common:resources",
     ":ui:onboarding",
 )
+include(":ui:songs")

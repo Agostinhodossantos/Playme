@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/model" />
             <option value="$PROJECT_DIR$/ui" />
             <option value="$PROJECT_DIR$/ui/onboarding" />
+            <option value="$PROJECT_DIR$/ui/songs" />
           </set>
         </option>
       </GradleProjectSettings>

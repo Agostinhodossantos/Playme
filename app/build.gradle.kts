@@ -85,18 +85,18 @@ android {
 }
 
 dependencies {
-//    implementation(projects.data)
-//    implementation(projects.domain)
-//    implementation(projects.base)
+    implementation(projects.data)
+    implementation(projects.domain)
+    implementation(projects.base)
 //    implementation(projects.common.imageloading)
     implementation(projects.common.compose)
-//    implementation(projects.ui.onboarding)
-//    implementation(projects.ui.discover)
+    implementation(projects.ui.onboarding)
+    implementation(projects.ui.songs)
 //    implementation(projects.ui.search)
 //    implementation(projects.ui.bookmark)
 //    implementation(projects.ui.details)
 //    implementation(projects.ui.settings)
-//    api(projects.model)
+    api(projects.model)
 
     // Hilt
     implementation(libs.hilt.library)
