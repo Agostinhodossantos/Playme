@@ -2,7 +2,6 @@ package app.playme.com.presentation.navigation
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOut
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -18,12 +17,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import app.playme.compose.ui.blackBackground
 import app.playme.model.Music
 
 @Composable
@@ -53,10 +52,9 @@ fun BottomBar(
 
             Column {
                 TopPlayer(music = music){}
-                Spacer(modifier = Modifier.height(8.dp))
                 BottomNavigation(
-                    modifier = Modifier.navigationBarsPadding(),
-                    backgroundColor = Color.DarkGray
+                    modifier = Modifier.navigationBarsPadding().height(70.dp).blackBackground(),
+                    backgroundColor = Color.Transparent,
                 ) {
                     screens.forEach { screen ->
                         AddItem(
