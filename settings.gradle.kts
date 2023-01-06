@@ -26,6 +26,7 @@ include(
     ":common:compose",
     ":common:resources",
     ":ui:onboarding",
+    ":ui:songs",
+    ":common:imageloading"
 )
-include(":ui:songs")
-include(":common:imageloading")
+

@@ -21,7 +21,7 @@ dependencies {
     implementation(projects.base)
     implementation(projects.domain)
     implementation(projects.common.compose)
-//    api(projects.common.imageloading)
+    api(projects.common.imageloading)
 
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)

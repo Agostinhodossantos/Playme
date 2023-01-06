@@ -1,4 +1,4 @@
-package app.playme.compose
+package app.playme.compose.theme
 
 import androidx.compose.material.Colors
 import androidx.compose.runtime.Composable

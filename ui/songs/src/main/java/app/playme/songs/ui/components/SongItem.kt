@@ -1,10 +1,12 @@
 package app.playme.songs.ui.components
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
@@ -32,6 +34,14 @@ fun SongItem(
 
                 width = fillToConstraints
             }
+        )
+
+        AsyncImage(
+            model = recipe.image ?: "",
+            requestBuilder = { crossfade(true) },
+            contentDescription = "Cuisine image",
+            modifier = Modifier.fillMaxSize() ,
+            contentScale = ContentScale.Crop
         )
 
     }

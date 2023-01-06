@@ -1,10 +1,11 @@
-package app.playme.compose
+package app.playme.compose.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.googlefonts.GoogleFont
+import app.playme.compose.R
 
 @ExperimentalTextApi
 internal fun createSingleGoogleFontFamily(
