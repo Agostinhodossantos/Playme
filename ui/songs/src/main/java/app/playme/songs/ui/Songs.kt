@@ -37,7 +37,7 @@ internal fun Songs(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        var music = Music("1", "https://i.ibb.co/jZYyyBV/4.jpg", "UNCENSORED Interview with Patrick Bet-David", "Cover","","","Agostinho", "04:00 min")
+        var music = Music("1", "https://i.ibb.co/qyxwYMG/download-1.jpg", "What do you mean", "Cover","","","Justin bieber", "04:00 min")
         var songs = mutableListOf<Music>()
         repeat(40) {
             songs.add(music)
