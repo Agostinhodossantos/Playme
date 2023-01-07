@@ -3,7 +3,6 @@ package app.playme.songs.ui
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -14,7 +13,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import app.playme.model.Music
+import app.playme.model.Song
 import app.playme.songs.ui.components.SearchItem
 import app.playme.songs.ui.components.SongItem
 
@@ -37,10 +36,10 @@ internal fun Songs(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        var music = Music("1", "https://i.ibb.co/qyxwYMG/download-1.jpg", "What do you mean", "Cover","","","Justin bieber", "04:00 min")
-        var songs = mutableListOf<Music>()
+        var song = Song("1", "https://i.ibb.co/qyxwYMG/download-1.jpg", "What do you mean", "Cover","","","Justin bieber", "04:00 min")
+        var songs = mutableListOf<Song>()
         repeat(40) {
-            songs.add(music)
+            songs.add(song)
         }
         AnimatedVisibility(visible = true) {
             MusicList(songs) {
@@ -53,7 +52,7 @@ internal fun Songs(
 
 @Composable
 private fun MusicList(
-    musics: List<Music>,
+    songs: List<Song>,
     navigateToPlayer: (String) -> Unit
 ) {
     LazyColumn(
@@ -69,9 +68,9 @@ private fun MusicList(
             SearchItem(){}
             Spacer(modifier = Modifier.height(30.dp))
         }
-        itemsIndexed(musics) { index, item ->
+        itemsIndexed(songs) { index, item ->
             SongItem(
-                music = item,
+                song = item,
                 onClick = { },
                 addPlaylist = {},
                 modifier = Modifier.fillMaxWidth(),

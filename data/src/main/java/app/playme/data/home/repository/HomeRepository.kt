@@ -1,8 +1,8 @@
 package app.playme.data.home.repository
 
-import app.playme.model.Music
+import app.playme.model.Song
 
 interface HomeRepository {
-    suspend fun getMusics(): List<Music>
-    suspend fun getAlbums(): List<Music>
+    suspend fun getMusics(): List<Song>
+    suspend fun getAlbums(): List<Song>
 }

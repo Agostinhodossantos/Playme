@@ -1,8 +1,8 @@
 package app.playme.data.songs.local
 
-import app.playme.model.Music
+import app.playme.model.Song
 
 interface SongsLocalDataSource {
-    suspend fun getAllSongs(music: Music)
-    suspend fun getSong(music: Music)
+    suspend fun getAllSongs(song: Song)
+    suspend fun getSong(song: Song)
 }

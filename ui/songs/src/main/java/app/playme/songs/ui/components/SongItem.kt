@@ -1,6 +1,5 @@
 package app.playme.songs.ui.components
 
-import android.os.Build
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -32,20 +31,18 @@ import androidx.constraintlayout.compose.Dimension
 import androidx.constraintlayout.compose.Dimension.Companion.fillToConstraints
 import app.playme.compose.theme.PlaymeTheme
 import app.playme.compose.ui.AsyncImage
-import app.playme.model.Music
+import app.playme.model.Song
 import app.playme.songs.R
-import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
 
 @Composable
 fun SongItem(
-    music: Music,
+    song: Song,
     onClick: (String) -> Unit,
     addPlaylist: (String) -> Unit,
     modifier: Modifier = Modifier,
     showDivider: Boolean = false
 ) {
-    ConstraintLayout(modifier = modifier.clickable { onClick(music.uri) }) {
+    ConstraintLayout(modifier = modifier.clickable { onClick(song.uri) }) {
         val (
             divider, songTitle, songAuthor, image,
             playIcon, date, addPlaylist, overflow
@@ -63,7 +60,7 @@ fun SongItem(
         }
 
         AsyncImage(
-            model = music.uri ?: "",
+            model = song.uri ?: "",
             requestBuilder = { crossfade(true) },
             contentDescription = "Music image",
             contentScale = ContentScale.Crop,
@@ -77,7 +74,7 @@ fun SongItem(
         )
 
         Text(
-            text = music.title,
+            text = song.title,
             maxLines = 2,
             overflow = TextOverflow.Ellipsis,
             style = MaterialTheme.typography.subtitle1,
@@ -99,7 +96,7 @@ fun SongItem(
 
         CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
             Text(
-                text = music.author,
+                text = song.author,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
                 style = MaterialTheme.typography.subtitle2,
@@ -127,7 +124,7 @@ fun SongItem(
                 .clickable(
                     interactionSource = remember { MutableInteractionSource() },
                     indication = rememberRipple(bounded = false, radius = 24.dp)
-                ) { onClick(music.uri) }
+                ) { onClick(song.uri) }
                 .size(48.dp)
                 .padding(6.dp)
                 .semantics { role = Role.Button }
@@ -140,7 +137,7 @@ fun SongItem(
 
         CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
             Text(
-                text = music.duration,
+                text = song.duration,
                 maxLines = 1,
                 style = MaterialTheme.typography.caption,
                 modifier = Modifier.constrainAs(date) {
@@ -191,10 +188,10 @@ fun SongItem(
 @Preview
 @Composable
 fun PreviewEpisodeListItem() {
-    var music = Music("1", "https://i.ibb.co/jZYyyBV/4.jpg", "Title", "Cover","","","", "")
+    var song = Song("1", "https://i.ibb.co/jZYyyBV/4.jpg", "Title", "Cover","","","", "")
     PlaymeTheme() {
         SongItem(
-            music = music,
+            song = song,
             onClick = { },
             addPlaylist = {},
             modifier = Modifier.fillMaxWidth()

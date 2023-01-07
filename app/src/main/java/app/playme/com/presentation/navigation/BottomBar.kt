@@ -23,7 +23,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import app.playme.compose.ui.blackBackground
-import app.playme.model.Music
+import app.playme.model.Song
 
 @Composable
 fun BottomBar(
@@ -48,10 +48,10 @@ fun BottomBar(
                         LayoutDirection.Ltr
                     }
         ) {
-            var music = Music("1", "https://i.ibb.co/qyxwYMG/download-1.jpg", "What do you mean ", "Cover","","","Justin bieber", "04:00 min")
+            var song = Song("1", "https://i.ibb.co/qyxwYMG/download-1.jpg", "What do you mean ", "Cover","","","Justin bieber", "04:00 min")
 
             Column {
-                TopPlayer(music = music){}
+                TopPlayer(song = song){}
                 BottomNavigation(
                     modifier = Modifier.navigationBarsPadding().height(70.dp).blackBackground(),
                     backgroundColor = Color.Transparent,

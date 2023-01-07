@@ -1,7 +1,7 @@
 package app.playme.data.home.local
 
-import app.playme.model.Music
+import app.playme.model.Song
 
 interface HomeLocalDataSource {
-    suspend fun getMusics(): List<Music>
+    suspend fun getSongs(): List<Song>
 }
